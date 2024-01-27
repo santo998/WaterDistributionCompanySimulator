@@ -1,0 +1,4 @@
+DELETE FROM Medicion;
+DELETE FROM Nodo;
+DELETE FROM Perdida;
+DELETE FROM Suscripcion;

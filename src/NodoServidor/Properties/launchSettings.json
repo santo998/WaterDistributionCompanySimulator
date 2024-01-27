@@ -1,0 +1,15 @@
+{
+  "profiles": {
+    "NodoServidor": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "NOMBRE_NODO": "NodoServidor_1",
+        "PERSISTE_NODOS_Y_MEDICIONES": "true",
+        "DETECTA_PERDIDAS": "true"
+      }
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

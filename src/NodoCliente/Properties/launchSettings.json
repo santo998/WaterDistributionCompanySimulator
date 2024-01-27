@@ -1,0 +1,15 @@
+{
+  "profiles": {
+    "NodoCliente": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ID_NODO": "1",
+        "NOMBRE_NODO": "NodoCliente_1",
+        "CAUDAL_ESPERADO": "100"
+      }
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NodoServidor", "NodoServidor\NodoServidor.csproj", "{AC5F81CF-7F39-4D3A-85A2-C8045213FD45}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NodoCliente", "NodoCliente\NodoCliente.csproj", "{203666E1-BC73-4525-8220-CC0A7B094A1B}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{BBEFEAEB-09C0-4D98-B78B-8FD692031766}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B4E14F9C-7502-486F-9886-F25E6C27D64D}"
+	ProjectSection(SolutionItems) = preProject
+		secrets.json = secrets.json
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utiles", "Utiles\Utiles.csproj", "{EB7CBC3E-2982-4DBC-8231-B63CBF8190FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "rabbitmq", "rabbitmq", "{98FF401E-E86B-4256-9CBD-2265C502D0BF}"
+	ProjectSection(SolutionItems) = preProject
+		definitions.json = definitions.json
+		rabbitmq.conf = rabbitmq.conf
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC5F81CF-7F39-4D3A-85A2-C8045213FD45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC5F81CF-7F39-4D3A-85A2-C8045213FD45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC5F81CF-7F39-4D3A-85A2-C8045213FD45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC5F81CF-7F39-4D3A-85A2-C8045213FD45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{203666E1-BC73-4525-8220-CC0A7B094A1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{203666E1-BC73-4525-8220-CC0A7B094A1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{203666E1-BC73-4525-8220-CC0A7B094A1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{203666E1-BC73-4525-8220-CC0A7B094A1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBEFEAEB-09C0-4D98-B78B-8FD692031766}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBEFEAEB-09C0-4D98-B78B-8FD692031766}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBEFEAEB-09C0-4D98-B78B-8FD692031766}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBEFEAEB-09C0-4D98-B78B-8FD692031766}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB7CBC3E-2982-4DBC-8231-B63CBF8190FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB7CBC3E-2982-4DBC-8231-B63CBF8190FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB7CBC3E-2982-4DBC-8231-B63CBF8190FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB7CBC3E-2982-4DBC-8231-B63CBF8190FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{98FF401E-E86B-4256-9CBD-2265C502D0BF} = {B4E14F9C-7502-486F-9886-F25E6C27D64D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {87693F90-AB27-4E0F-9EE3-934E03A51B2F}
+	EndGlobalSection
+EndGlobal

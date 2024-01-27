@@ -1,0 +1,96 @@
+version: '3.4'
+
+# los secrets se montan en el path /run/secrets/ del contenedor
+# "ec4e0d66-90d0-40bf-a4be-3ea3d138eb39" es el GUID que generó Visual Studio
+secrets:
+  credenciales:
+    #file: $AppData/Microsoft/UserSecrets/ec4e0d66-90d0-40bf-a4be-3ea3d138eb39/secrets.json
+    file: ./secrets.json
+
+services:
+  rabbit:
+    container_name: Rabbit
+    image: rabbitmq:3-management-alpine
+    hostname: rabbit
+    ports:
+      - "8081:15672"
+      - "5672:5672"
+    volumes:
+      - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
+      - ./definitions.json:/etc/rabbitmq/definitions.json:ro
+    expose:
+      - 15672
+      - 5672
+ 
+  bd:
+    container_name: SQL_Server
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - 11433:1433
+    environment:
+      - ACCEPT_EULA=y
+      - SA_PASSWORD=password@12345#
+
+  nodocliente_1:
+    container_name: NodoCliente_1
+    environment:
+      - ID_NODO=1
+      - NOMBRE_NODO=NodoCliente_1
+      - CAUDAL_ESPERADO=100
+    image: ${DOCKER_REGISTRY-}nodocliente
+    build:
+      context: .
+      dockerfile: NodoCliente/Dockerfile
+    secrets:
+      - credenciales
+    depends_on:
+      - rabbit
+
+  nodocliente_2:
+    container_name: NodoCliente_2
+    environment:
+      - ID_NODO=2
+      - PADRE_NODO=1
+      - NOMBRE_NODO=NodoCliente_2
+      - CAUDAL_ESPERADO=60
+    image: ${DOCKER_REGISTRY-}nodocliente
+    build:
+      context: .
+      dockerfile: NodoCliente/Dockerfile
+    secrets:
+      - credenciales
+    depends_on:
+      - rabbit
+
+  nodocliente_3:
+    container_name: NodoCliente_3
+    environment:
+      - ID_NODO=3
+      - PADRE_NODO=1
+      - NOMBRE_NODO=NodoCliente_3
+      - CAUDAL_ESPERADO=40
+      - CON_PERDIDAS=true
+    image: ${DOCKER_REGISTRY-}nodocliente
+    build:
+      context: .
+      dockerfile: NodoCliente/Dockerfile
+    secrets:
+      - credenciales
+    depends_on:
+      - rabbit
+
+  nodoservidor_1:
+    container_name: NodoServidor_1
+    environment:
+      - NOMBRE_NODO=NodoServidor_1
+      - PERSISTE_NODOS_Y_MEDICIONES=true
+      - DETECTA_PERDIDAS=true
+    image: ${DOCKER_REGISTRY-}nodoservidor
+    build:
+      context: .
+      dockerfile: NodoServidor/Dockerfile
+    secrets:
+      - credenciales
+    depends_on:
+      - rabbit
+      - bd
