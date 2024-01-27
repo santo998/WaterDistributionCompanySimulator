@@ -56,10 +56,10 @@ To configure the bot, follow these steps:
     Example: Assuming the token is "tokenExample1234", the secrets.json file would contain:
 
     "API_Telegram": {
-		"Token": "tokenExample1234"
+   	"Token": "tokenExample1234"
     }
 
-2) Search for the bot on Telegram and send it any message (e.g., "Hello").
+3) Search for the bot on Telegram and send it any message (e.g., "Hello").
     If prompted with the "/start" command, send it, to be able to write the initial message later.
     Our system, before notifying, updates subscriptions in the database with new messages the bot received. Then, it retrieves subscriptions from the database and sends a "broadcast" through our Telegram bot to the chats initiated by users.
     The advantage of updating subscriptions just before notifying is that users can subscribe to the bot at any time.
