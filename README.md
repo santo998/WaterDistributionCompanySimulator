@@ -12,15 +12,15 @@ A folder "..\Docs" is included, containing all documentation associated with thi
 
 To simplify user configuration, I modified the Rabbit image to include two users:
 
-1) The local_jobs user, used for communication between nodes.
-
-	Username = local_jobs
-	Password = password123
-
-2) The admin user, used for user administration from Rabbit management.
-
-	Username = admin
-	Password = admin
+	1) The local_jobs user, used for communication between nodes.
+	
+		Username = local_jobs
+		Password = password123
+	
+	2) The admin user, used for user administration from Rabbit management.
+	
+		Username = admin
+		Password = admin
 
 These users are configured in the Rabbit image.
 Rabbit's administration environment is configured at the URL "localhost:8081".
@@ -38,18 +38,18 @@ It uses a Telegram bot to send loss notifications to subscribed users.
 Bot Creation:
 To create the bot, follow these steps:
 
-1) Go to the Telegram app.
-2) Search for the "BotFather" contact.
-3) If prompted with the "/start" command, send it.
-4) Send the "/newbot" command, starting the bot creation.
-5) Give it a name (e.g., "WaterDistributionCompany").
-6) Assign a username ending in "Bot" (e.g., "WaterDistributionCompanyBot").
-7) The bot is now created and ready for configuration.
+	1) Go to the Telegram app.
+	2) Search for the "BotFather" contact.
+	3) If prompted with the "/start" command, send it.
+	4) Send the "/newbot" command, starting the bot creation.
+	5) Give it a name (e.g., "WaterDistributionCompany").
+	6) Assign a username ending in "Bot" (e.g., "WaterDistributionCompanyBot").
+	7) The bot is now created and ready for configuration.
 
 Bot Configuration:
 To configure the bot, follow these steps:
 
-1) After bot creation, BotFather provides a token for HTTP API access. Copy and paste it into the secrets.json file under the "API_Telegram" label and as the value for the "Token".
+1\) After bot creation, BotFather provides a token for HTTP API access. Copy and paste it into the secrets.json file under the "API_Telegram" label and as the value for the "Token".
 
     The directory of the secrets.json file is:
     If run in Visual Studio, its directory is: "%AppData%/Microsoft/UserSecrets/ec4e0d66-90d0-40bf-a4be-3ea3d138eb39/secrets.json".
@@ -58,10 +58,10 @@ To configure the bot, follow these steps:
     Example: Assuming the token is "tokenExample1234", the secrets.json file would contain:
 
     "API_Telegram": {
-   	"Token": "tokenExample1234"
+		"Token": "tokenExample1234"
     }
 
-3) Search for the bot on Telegram and send it any message (e.g., "Hello").
+2\) Search for the bot on Telegram and send it any message (e.g., "Hello").
     If prompted with the "/start" command, send it, to be able to write the initial message later.
     Our system, before notifying, updates subscriptions in the database with new messages the bot received. Then, it retrieves subscriptions from the database and sends a "broadcast" through our Telegram bot to the chats initiated by users.
     The advantage of updating subscriptions just before notifying is that users can subscribe to the bot at any time.
@@ -79,9 +79,9 @@ In the terminal, you can see the outputs of the different containers.
 The other way is using Visual Studio.
 The procedure for this is as follows:
 
-    1) Set the docker-compose project as the startup project.
-    2) Run the solution.
-    3) In the output, you can see messages from Nodo Servidor and Clients, but not third-party services like SQL Server and Rabbit, which do occur in the Docker Compose CLI.
+	1) Set the docker-compose project as the startup project.
+	2) Run the solution.
+	3) In the output, you can see messages from Nodo Servidor and Clients, but not third-party services like SQL Server and Rabbit, which do occur in the Docker Compose CLI.
 
 Whether run through the script or Visual Studio, if Docker Desktop is available, each container can be accessed separately, and its respective output can be viewed.
 Remember to follow the instructions for creating and configuring the Telegram bot. Otherwise, notifications will not be received.
