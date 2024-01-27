@@ -1,4 +1,6 @@
 Water distribution company simulator:
+This project is a simulation of a water distribution company, featuring pipelines and flow meters that emulate real-world measurements.
+The primary goal of this project was to experiment with microservices architecture, Docker containerization, and Entity Framework for efficient data management.
 
 A folder "..\Docs" is included, containing all documentation associated with this project:
 
@@ -8,7 +10,7 @@ A folder "..\Docs" is included, containing all documentation associated with thi
 - Demo2: Contains a demo of messaging functionality using the Telegram API via Docker CLI (command line interface).
     
 
-To simplify user configuration, we modified the Rabbit image to include two users:
+To simplify user configuration, I modified the Rabbit image to include two users:
 
 1) The local_jobs user, used for communication between nodes.
 
@@ -30,7 +32,7 @@ Right-click on NodoServidor → Manage user secrets.
 Replace the content with that of the secrets.json file in the solution.
 
 Telegram Bot:
-We use a Telegram bot to send loss notifications to subscribed users.
+It uses a Telegram bot to send loss notifications to subscribed users.
 
 
 Bot Creation:
