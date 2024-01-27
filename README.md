@@ -1,4 +1,5 @@
 Water distribution company simulator:
+
 This project is a simulation of a water distribution company, featuring pipelines and flow meters that emulate real-world measurements.
 The primary goal of this project was to experiment with microservices architecture, Docker containerization, and Entity Framework for efficient data management.
 
@@ -32,10 +33,12 @@ Right-click on NodoServidor → Manage user secrets.
 Replace the content with that of the secrets.json file in the solution.
 
 Telegram Bot:
+
 It uses a Telegram bot to send loss notifications to subscribed users.
 
 
 Bot Creation:
+
 To create the bot, follow these steps:
 
 	1) Go to the Telegram app.
@@ -47,9 +50,10 @@ To create the bot, follow these steps:
 	7) The bot is now created and ready for configuration.
 
 Bot Configuration:
+
 To configure the bot, follow these steps:
 
-1\) After bot creation, BotFather provides a token for HTTP API access. Copy and paste it into the secrets.json file under the "API_Telegram" label and as the value for the "Token".
+	1) After bot creation, BotFather provides a token for HTTP API access. Copy and paste it into the secrets.json file under the "API_Telegram" label and as the value for the "Token".
 
     The directory of the secrets.json file is:
     If run in Visual Studio, its directory is: "%AppData%/Microsoft/UserSecrets/ec4e0d66-90d0-40bf-a4be-3ea3d138eb39/secrets.json".
@@ -61,7 +65,8 @@ To configure the bot, follow these steps:
 		"Token": "tokenExample1234"
     }
 
-2\) Search for the bot on Telegram and send it any message (e.g., "Hello").
+	2) Search for the bot on Telegram and send it any message (e.g., "Hello").
+	
     If prompted with the "/start" command, send it, to be able to write the initial message later.
     Our system, before notifying, updates subscriptions in the database with new messages the bot received. Then, it retrieves subscriptions from the database and sends a "broadcast" through our Telegram bot to the chats initiated by users.
     The advantage of updating subscriptions just before notifying is that users can subscribe to the bot at any time.
@@ -69,9 +74,11 @@ To configure the bot, follow these steps:
     Security could be added by having users send certain keywords to the bot. Currently, any message is valid, so anyone who knows our bot's username can subscribe and receive notifications about system losses.
 
 To run the system, there are two ways:
+
 The recommended one is using the "Docker compose.bat" script, which uses Docker CLI to run the docker-compose.
 
 The procedure for this is as follows:
+
 Open the "Docker compose.bat" file.
 The command prompt will open, third-party images will be obtained from Docker Hub, our projects will be compiled, creating the corresponding images, and all will be unified in a compose.
 In the terminal, you can see the outputs of the different containers.
