@@ -29,6 +29,7 @@ Accessing with the admin user allows monitoring the system and performing CRUD o
 Also included is a secrets.json file containing Rabbit credentials and database connection. This file should not be included in version control (for security reasons), so it was included with Telegram API token empty.
 
 When configuring in Visual Studio:
+
 Right-click on NodoServidor → Manage user secrets.
 Replace the content with that of the secrets.json file in the solution.
 
